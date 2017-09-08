@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>
+		Chart
+	</title>
+	<link rel="stylesheet" type="text/css" href="jquery.jqplot.min.css" />
+	<script class="include" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="jquery.jqplot.js"></script>
+    <script language="javascript" type="text/javascript" src="jqplot.categoryAxisRenderer.js"></script> 
+    <script language="javascript" type="text/javascript" src="jqplot.barRenderer.js"></script>
+	 <script language="javascript" type="text/javascript" src="jqplot.canvasOverlay.js"></script>
+	 
+<script type="text/javascript" src="../src/excanvas.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.barRenderer.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.canvasTextRenderer.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.pointLabels.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.canvasAxisLabelRenderer.min.js">
+</script><script type="text/javascript" src="http://cdn.jsdelivr.net/jqplot/1.0.8/plugins/jqplot.canvasOverlay.js"></script>
+<script type="text/javascript" src="arrays.js"></script><script class="code" type="text/javascript">
+$(document).ready(function(){ 
+
+    
+    <script lang="javascript" type="text/javascript">
+     $(document).ready(function(){
+    var s1 = [[2009, 3.5], [2010, 4.4], [2011, 6.0], [2012, 9.1], [2013, 12.0], [2014, 14.4]];
+     
+    plot1 = $.jqplot('chart2', [s1], {
+        series:[{
+            renderer:$.jqplot.BarRenderer,
+            rendererOptions: {
+                barWidth: 10,
+				fillToZero: true  
+            },
+			pointLabels: {
+				show: true
+				,formatString: '%.1f'
+				,seriesLabelIndex:1
+				,hideZeros:false
+			}
+        }],
+        axes: {
+            xaxis: {
+				tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                renderer: $.jqplot.CategoryAxisRenderer,
+				label: 'Sample #'
+            },      
+			yaxis: {   
+				labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+				padMin: 0,
+				pad: 1.1,
+				label: 'Temperatures (°C)',
+				rendererOptions: { forceTickAt0: true}
+			} 
+        },
+		negativeSeriesColors:['darkred'], 
+        grid: {
+			 background: '#f8f8f8'
+		},
+        canvasOverlay: {
+            show: true,
+            objects: [
+                {dashedHorizontalLine: {
+                    name: 'avergae',
+                    y: 20.8,
+                    lineWidth: 6,
+                    color: 'black',
+                    shadow: false
+                }}
+            ]
+        }
+    });
+});
+ 
+   </script>
+
+</head>
+<body>
+    <div id="chart2" style="height:300px;width:500px"></div>
+</body>
+</html>
+ 

@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>
+		Chart
+	</title>
+	<link rel="stylesheet" type="text/css" href="jquery.jqplot.min.css" />
+	<script class="include" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="jquery.jqplot.js"></script>
+    <script language="javascript" type="text/javascript" src="jqplot.categoryAxisRenderer.js"></script>
+    <script language="javascript" type="text/javascript" src="jqplot.barRenderer.js"></script>
+    
+    <script lang="javascript" type="text/javascript">
+      $(document).ready(function(){
+		var line1 = [['Nissan', 4],['Porche', 6],['Acura', 2],['Aston Martin', 5],['Rolls Royce', 6]];
+	 
+		$('#chart2').jqplot([line1], {
+			title:'Bar',
+			seriesDefaults:{
+				renderer:$.jqplot.BarRenderer,
+				rendererOptions: {
+					varyBarColor: true
+				}
+			},
+			axes:{
+				xaxis:{
+					renderer: $.jqplot.CategoryAxisRenderer
+				}
+			}
+		});
+	});
+    </script>
+
+</head>
+<body>
+    <div id="chart2" style="height:300px;width:500px"></div>
+</body>
+</html>
+ 
